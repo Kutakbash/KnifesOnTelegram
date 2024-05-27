@@ -9,7 +9,7 @@ const bot = new TelegramBot(TOKEN, {
 const port = process.env.PORT || 5000;
 const gameName = "@KnifesOnTelegram_bot";
 const queries = {};
-server.use(express.static(path.join(__dirname, '@KnifesOnTelegram_bot')));
+server.use(express.static(path.join(__dirname, 'KnifesOnTelegram')));
 bot.onText(/help/, (msg) => bot.sendMessage(msg.from.id, "Say /game if you want to play."));
 bot.onText(/start|game/, (msg) => bot.sendGame(msg.from.id, gameName));
 bot.on("callback_query", function (query) {
