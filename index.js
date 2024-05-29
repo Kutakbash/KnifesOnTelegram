@@ -17,7 +17,7 @@ bot.on("callback_query",  query => {
         return bot.answerCallbackQuery(query.id, `Sorry, ${query.game_short_name} is not available.`);
     } else {
         queries[query.id] = query;
-        let gameurl = "https://t.me/KnifesOnTelegram_bot?game=KnifesOnTelegram";
+        let gameurl = "https://kutakbash.github.io/KnifesOnTelegram/";
         return bot.answerCallbackQuery({
             callback_query_id: query.id,
             url: gameurl
