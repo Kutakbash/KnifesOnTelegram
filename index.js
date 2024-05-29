@@ -11,10 +11,7 @@ const gameName = "KnifesOnTelegram";
 let queries = {};
 server.use(express.static(path.join(__dirname, 'KnifesOnTelegram')));
 bot.onText(/help/, (msg) => bot.sendMessage(msg.from.id, "Type /game if you want to play."));
-//bot.onText(/start|game/, (msg) => bot.sendMessage(msg.from.id, gameName));
-bot.onText(/start|game/, (msg) => {
-    console.log('nigga')
-});
+bot.onText(/start|game/, (msg) => bot.sendMessage(msg.from.id, gameName));
 bot.on("callback_query",  query => {
     if (query.game_short_name !== gameName) {
         return bot.answerCallbackQuery(query.id, `Sorry, ${query.game_short_name} is not available.`);
