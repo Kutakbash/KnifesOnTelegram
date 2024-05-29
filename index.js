@@ -7,7 +7,7 @@ const bot = new TelegramBot(TOKEN, {
     polling: true
 });
 const port = process.env.PORT || 5000;
-const gameName = "KnifesOnTelegram";
+const gameName = "tetris";
 let queries = {};
 server.use(express.static(path.join(__dirname, 'KnifesOnTelegram')));
 bot.onText(/help/, (msg) => bot.sendMessage(msg.from.id, "Type /game if you want to play."));
@@ -17,7 +17,7 @@ bot.on("callback_query",  query => {
         return bot.answerCallbackQuery(query.id, `Sorry, ${query.game_short_name} is not available.`);
     } else {
         queries[query.id] = query;
-        let gameurl = "https://kutakbash.github.io/KnifesOnTelegram/";
+        let gameurl = "https://t.me/KnifesOnTelegram_bot?game=tetris";
         return bot.answerCallbackQuery({
             callback_query_id: query.id,
             url: gameurl
